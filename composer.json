@@ -3,7 +3,7 @@
     "autoload": {
         "psr-4": {
             "App\\": "app",
-            "alexeysmlk\\Framework\\": "framework"
+            "Alexeysmlk\\Framework\\": "framework"
         }
     },
     "require-dev": {
