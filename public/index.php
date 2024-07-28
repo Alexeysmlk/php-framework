@@ -6,10 +6,13 @@ require_once BASE_PATH . '/vendor/autoload.php';
 
 use Alexeysmlk\Framework\Http\Kernel;
 use Alexeysmlk\Framework\Http\Request;
+use Alexeysmlk\Framework\Routing\Router;
 
 $request = Request::createFromGlobals();
 
-$kernel = new Kernel();
+$router = new Router();
+
+$kernel = new Kernel($router);
 $response = $kernel->handle($request);
 
 $response->send();
