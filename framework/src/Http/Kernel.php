@@ -3,8 +3,6 @@
 namespace Alexeysmlk\Framework\Http;
 
 use Alexeysmlk\Framework\Http\Exceptions\HttpException;
-use Alexeysmlk\Framework\Http\Exceptions\MethodNotAllowedException;
-use Alexeysmlk\Framework\Http\Exceptions\RouteNotFoundException;
 use Alexeysmlk\Framework\Routing\RouterInterface;
 
 class Kernel

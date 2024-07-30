@@ -4,8 +4,29 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6d55416101fe6c245040e5843541cb85",
+    "content-hash": "cc0209ebbf7488bd2621f1024ed948ac",
     "packages": [
+        {
+            "name": "alexeysmlk/php-framework",
+            "version": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "framework",
+                "reference": "9219367045a601fb0afdd17ef0582c440dff2a77"
+            },
+            "require": {
+                "nikic/fast-route": "^1.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Alexeysmlk\\Framework\\": "src"
+                }
+            },
+            "transport-options": {
+                "relative": true
+            }
+        },
         {
             "name": "nikic/fast-route",
             "version": "v1.3.0",
@@ -290,10 +311,14 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "alexeysmlk/php-framework": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": [],
+    "platform": {
+        "php": "^8.2"
+    },
     "platform-dev": [],
     "plugin-api-version": "2.6.0"
 }
