@@ -18,14 +18,53 @@ class Container implements ContainerInterface
 			$concrete = $id;
 		}
 
-
-
 		$this->services[$id] = $concrete;
 	}
 
 	public function get(string $id)
 	{
-		return new $this->services[$id];
+		if (!$this->has($id)) {
+			if (!class_exists($id)) {
+				throw new ContainerException("Service $id could not be resolved");
+			}
+
+			$this->add($id);
+		}
+
+		return $this->resolve($this->services[$id]);
+	}
+
+	private function resolve($class)
+	{
+		$reflectionClass = new \ReflectionClass($class);
+
+		$constructor = $reflectionClass->getConstructor();
+
+		if (is_null($constructor)) {
+			return $reflectionClass->newInstance();
+		}
+
+		$constructorParams = $constructor->getParameters();
+
+		$classDependencies = $this->resolveClassDependencies($constructorParams);
+
+		return $reflectionClass->newInstanceArgs($classDependencies);
+	}
+
+	private function resolveClassDependencies(array $constructorParams): array
+	{
+		$classDependencies = [];
+
+		/** @var \ReflectionParameter $constructorParam */
+		foreach ($constructorParams as $constructorParam) {
+			$serviceType = $constructorParam->getType();
+
+			$service = $this->get($serviceType->getName());
+
+			$classDependencies[] = $service;
+		}
+
+		return $classDependencies;
 	}
 
 	public function has(string $id): bool
