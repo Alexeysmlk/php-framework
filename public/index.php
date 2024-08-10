@@ -6,13 +6,14 @@ require_once BASE_PATH . '/vendor/autoload.php';
 
 use Alexeysmlk\Framework\Http\Kernel;
 use Alexeysmlk\Framework\Http\Request;
-use Alexeysmlk\Framework\Routing\Router;
 
 $request = Request::createFromGlobals();
 
-$router = new Router();
+$container = require BASE_PATH . '/config/services.php';
 
-$kernel = new Kernel($router);
+/** @var League\Container\Container $container */
+$kernel = $container->get(Kernel::class);
+
 $response = $kernel->handle($request);
 
 $response->send();

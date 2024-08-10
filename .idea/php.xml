@@ -49,6 +49,8 @@
       <path value="$PROJECT_DIR$/framework/vendor/phpunit/php-timer" />
       <path value="$PROJECT_DIR$/framework/vendor/symfony/polyfill-mbstring" />
       <path value="$PROJECT_DIR$/framework/vendor/symfony/var-dumper" />
+      <path value="$PROJECT_DIR$/framework/vendor/league/container" />
+      <path value="$PROJECT_DIR$/vendor/league/container" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.2" />
