@@ -1,0 +1,23 @@
+{
+    "name": "alexeysmlk/php-framework",
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "Alexeysmlk\\Framework\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Alexeysmlk\\Framework\\Tests\\": "tests"
+        }
+    },
+    "require": {
+        "nikic/fast-route": "^1.3",
+        "league/container": "^4.2.2",
+        "symfony/dotenv": "^v6.3.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^11.3@dev",
+        "symfony/var-dumper": "7.2.x-dev"
+    }
+}

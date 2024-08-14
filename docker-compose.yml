@@ -15,7 +15,7 @@ services:
     fpm:
         container_name: framework_fpm
         environment:
-            PHP_IDE_CONFIG: "serverName=laravel07"
+            PHP_IDE_CONFIG: "serverName=server"
         build:
           dockerfile: docker/php/Dockerfile
           context: .
@@ -32,5 +32,3 @@ services:
         environment:
             - MYSQL_ROOT_PASSWORD=root
             - MYSQL_DATABASE=laravel07
-                
-                
